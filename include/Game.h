@@ -12,6 +12,8 @@ class Game {
         void run();
 
     private:
+        void poll_events();
+
         sf::RenderWindow m_main_window;
 };
 
