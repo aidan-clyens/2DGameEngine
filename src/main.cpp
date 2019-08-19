@@ -1,9 +1,12 @@
-#include "Game.h"
 #include "global.h"
+#include "Game.h"
+
+InputManager *input_manager;
+TextureManager *texture_manager;
 
 int main() {
-    InputManager *input_manager = new InputManager();
-    TextureManager *texture_manager = new TextureManager();
+    input_manager = new InputManager();
+    texture_manager = new TextureManager();
     Game game;
 
     game.run();
