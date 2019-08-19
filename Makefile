@@ -4,7 +4,7 @@ DEBUG=-g
 RELEASE=-o2
 CSRCS=$(wildcard src/*cpp)
 LINKER=-lsfml-graphics -lsfml-window -lsfml-system
-INCLUDE=-I/usr/local/include/SFML
+INCLUDE=-I/usr/local/include/SFML -Iinclude
 
 all: main.o
 
