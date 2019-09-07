@@ -2,6 +2,7 @@
 #define GLOBAL_H
 
 #include <string>
+#include <list>
 
 #include "TextureManager.h"
 #include "InputManager.h"
