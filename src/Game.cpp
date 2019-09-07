@@ -4,8 +4,7 @@ Game::Game():
 m_main_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Test"),
 m_game_world(new World(m_main_window))
 {
-    GameObject player("res/player.bmp");
-    m_game_world->add_game_object(player);
+    m_game_world->add_game_object(new Player("res/player.bmp"));
 }
 
 Game::~Game() {

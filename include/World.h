@@ -12,11 +12,11 @@ class World {
         void update();
         void draw();
 
-        void add_game_object(GameObject &g);
+        void add_game_object(GameObject *g);
         void remove_game_object(GameObject &g);
 
     private:
-        std::list<GameObject> m_game_objects;
+        std::list<GameObject*> m_game_objects;
         sf::RenderWindow &m_render_window;
 };
 

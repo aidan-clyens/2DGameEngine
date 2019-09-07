@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "global.h"
 #include "World.h"
+#include "Player.h"
 
 class Game {
     public:
