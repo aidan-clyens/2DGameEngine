@@ -6,12 +6,12 @@
 class GameObject {
     public:
         GameObject(const std::string &name);
-        ~GameObject();
+        virtual ~GameObject();
 
-        void update();
+        virtual void update();
         void draw(sf::RenderWindow &render_window);
 
-    private:
+    protected:
         std::string m_texture_name;
         sf::Vector2f m_position;
 };
