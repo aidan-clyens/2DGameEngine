@@ -34,7 +34,12 @@ void Game::poll_events() {
         }
 
         else if (event.type == sf::Event::KeyPressed) {
+            input_manager->set_key_pressed(true);
             input_manager->set_last_key_pressed(event.key.code);
+        }
+
+        else if (event.type == sf::Event::KeyReleased) {
+            input_manager->set_key_pressed(false);
         }
     }
 }

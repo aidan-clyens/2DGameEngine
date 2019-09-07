@@ -14,16 +14,16 @@ void Player::update() {
     if (input_manager->get_key_pressed()) {
         switch (input_manager->get_last_key_pressed()) {
             case sf::Keyboard::W:
-                m_position.y += 2;
+                m_position.y -= PLAYER_SPEED;
                 break;
             case sf::Keyboard::S:
-                m_position.y -= 2;
+                m_position.y += PLAYER_SPEED;
                 break;
             case sf::Keyboard::A:
-                m_position.x += 2;
+                m_position.x -= PLAYER_SPEED;
                 break;
             case sf::Keyboard::D:
-                m_position.x -= 2;
+                m_position.x += PLAYER_SPEED;
                 break;
             default:
                 break;

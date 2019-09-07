@@ -11,6 +11,8 @@
 #define WINDOW_WIDTH    800
 #define WINDOW_HEIGHT   600
 
+#define PLAYER_SPEED    0.5
+
 const std::string PLAYER_IMG = "res/player.bmp";
 
 // Global variables
