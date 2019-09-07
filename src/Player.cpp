@@ -14,19 +14,35 @@ void Player::update() {
     if (input_manager->get_key_pressed()) {
         switch (input_manager->get_last_key_pressed()) {
             case sf::Keyboard::W:
-                m_position.y -= PLAYER_SPEED;
+                up();
                 break;
             case sf::Keyboard::S:
-                m_position.y += PLAYER_SPEED;
+                down();
                 break;
             case sf::Keyboard::A:
-                m_position.x -= PLAYER_SPEED;
+                left();
                 break;
             case sf::Keyboard::D:
-                m_position.x += PLAYER_SPEED;
+                right();
                 break;
             default:
                 break;
         }
     }
+}
+
+void Player::up() {
+    m_position.y -= PLAYER_SPEED;
+}
+
+void Player::down() {
+    m_position.y += PLAYER_SPEED;
+}
+
+void Player::left() {
+    m_position.x -= PLAYER_SPEED;
+}
+
+void Player::right() {
+    m_position.x += PLAYER_SPEED;
 }

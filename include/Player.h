@@ -10,6 +10,11 @@ class Player : public GameObject {
         virtual ~Player();
 
         virtual void update();
+
+        void up();
+        void down();
+        void left();
+        void right();
     
     // private:
 };
