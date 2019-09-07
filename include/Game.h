@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "global.h"
+#include "World.h"
 
 class Game {
     public:
@@ -15,6 +16,7 @@ class Game {
         void poll_events();
 
         sf::RenderWindow m_main_window;
+        World *m_game_world;
 };
 
 #endif // GAME_H
