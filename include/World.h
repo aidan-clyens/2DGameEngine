@@ -12,11 +12,14 @@ class World {
         void update();
         void draw();
 
+        void load_level();
+
         void add_game_object(GameObject *g);
         void remove_game_object(GameObject &g);
 
     private:
         std::list<GameObject*> m_game_objects;
+        std::list<GameObject*> m_level_objects;
         sf::RenderWindow &m_render_window;
 };
 
