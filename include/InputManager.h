@@ -2,6 +2,7 @@
 #define INPUTMANAGER_H
 
 #include <SFML/Graphics.hpp>
+#include <set>
 
 class InputManager {
     public:
@@ -9,14 +10,13 @@ class InputManager {
         ~InputManager();
 
         bool get_key_pressed() const;
-        sf::Keyboard::Key get_last_key_pressed() const;
+        std::set<sf::Keyboard::Key> get_last_keys_pressed();
 
-        void set_key_pressed(bool is_key_pressed);
         void set_last_key_pressed(sf::Keyboard::Key);
+        void set_last_key_released(sf::Keyboard::Key);
 
     private:
-        bool m_is_key_pressed;
-        sf::Keyboard::Key m_last_key_pressed;
+        std::set<sf::Keyboard::Key> m_keys_pressed;
 };
 
 #endif // INPUTMANAGER_H

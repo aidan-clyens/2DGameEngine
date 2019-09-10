@@ -12,21 +12,23 @@ Player::~Player() {
 
 void Player::update() {
     if (input_manager->get_key_pressed()) {
-        switch (input_manager->get_last_key_pressed()) {
-            case sf::Keyboard::W:
-                up();
-                break;
-            case sf::Keyboard::S:
-                down();
-                break;
-            case sf::Keyboard::A:
-                left();
-                break;
-            case sf::Keyboard::D:
-                right();
-                break;
-            default:
-                break;
+        for (sf::Keyboard::Key key : input_manager->get_last_keys_pressed()) {
+            switch (key) {
+                case sf::Keyboard::W:
+                    up();
+                    break;
+                case sf::Keyboard::S:
+                    down();
+                    break;
+                case sf::Keyboard::A:
+                    left();
+                    break;
+                case sf::Keyboard::D:
+                    right();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
