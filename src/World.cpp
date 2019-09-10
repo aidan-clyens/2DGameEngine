@@ -7,6 +7,8 @@ m_render_window(render_window)
 }
 
 World::~World() {
+    delete m_level;
+    
     for (GameObject *g : m_game_objects) {
         delete g;
     }

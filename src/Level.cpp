@@ -9,7 +9,9 @@ Level::Level() {
 }
 
 Level::~Level() {
-    // Empty
+    for (GameObject *g : m_level_blocks) {
+        delete g;
+    }
 }
 
 void Level::update() {
