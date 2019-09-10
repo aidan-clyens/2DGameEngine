@@ -13,9 +13,7 @@ World::~World() {
 }
 
 void World::update() {
-    for (GameObject *g : m_level_objects) {
-        g->update();
-    }
+    m_level->update();
 
     for (GameObject *g : m_game_objects) {
         g->update();
@@ -23,17 +21,15 @@ void World::update() {
 }
 
 void World::draw() {
-    for (GameObject *g : m_level_objects) {
-        g->draw(m_render_window);
-    }
+    m_level->draw(m_render_window);
 
     for (GameObject *g : m_game_objects) {
         g->draw(m_render_window);
     }
 }
 
-void World::load_level() {
-    // TODO
+void World::load_level(Level *level) {
+    m_level = level;
 }
 
 void World::add_game_object(GameObject *g) {

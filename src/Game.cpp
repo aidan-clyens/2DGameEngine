@@ -4,6 +4,7 @@ Game::Game():
 m_main_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Test"),
 m_game_world(new World(m_main_window))
 {
+    m_game_world->load_level(new Level());
     m_game_world->add_game_object(new Player("res/player.bmp"));
 }
 

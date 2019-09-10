@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "GameObject.h"
+#include "Level.h"
 
 class World {
     public:
@@ -12,14 +13,14 @@ class World {
         void update();
         void draw();
 
-        void load_level();
+        void load_level(Level *level);
 
         void add_game_object(GameObject *g);
         void remove_game_object(GameObject &g);
 
     private:
         std::list<GameObject*> m_game_objects;
-        std::list<GameObject*> m_level_objects;
+        Level *m_level;
         sf::RenderWindow &m_render_window;
 };
 
