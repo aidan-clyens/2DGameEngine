@@ -1,15 +1,18 @@
 CC=g++
 CFLAGS=-Wall
 DEBUG=-g
-RELEASE=-o2
+RELEASE=-O2
 CSRCS=$(wildcard src/*cpp)
 LINKER=-lsfml-graphics -lsfml-window -lsfml-system
 INCLUDE=-I/usr/local/include/SFML -Iinclude
 
-all: main.o
+all: debug
 
-main.o:
+debug:
 	$(CC) -o main.o ${CSRCS} ${CFLAGS} ${DEBUG} ${INCLUDE} ${LINKER}
+
+release:
+	$(CC) -o main.o $(CSRCS) ${CFLAGS} ${RELEASE} ${INCLUDE} ${LINKER}
 
 .PHONY: clean
 clean:
