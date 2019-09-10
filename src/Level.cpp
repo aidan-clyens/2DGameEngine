@@ -1,7 +1,11 @@
 #include "Level.h"
 
 Level::Level() {
-    // Empty
+    for (int i=0; i<LEVEL_ROWS; i++) {
+        for (int j=0; j <LEVEL_COLS; j++) {
+            add_level_object(new GameObject("res/block.bmp", sf::Vector2f(j*BLOCK_WIDTH, i*BLOCK_WIDTH)));
+        }
+    }
 }
 
 Level::~Level() {
@@ -24,7 +28,6 @@ void Level::add_level_object(GameObject *g) {
     m_level_blocks.push_back(g);
 }
 
-void Level::remove_level_object(GameObject &g)
-{
+void Level::remove_level_object(GameObject &g) {
     // TODO
 }
