@@ -13,6 +13,8 @@ Game::~Game() {
 }
 
 void Game::run() {
+    m_main_window.setFramerateLimit(60);
+
     while (m_main_window.isOpen()) {
         // Poll events
         poll_events();
