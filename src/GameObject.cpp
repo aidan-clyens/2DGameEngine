@@ -7,6 +7,13 @@ m_position(sf::Vector2f(0, 0))
     texture_manager->load_texture(m_texture_name);
 }
 
+GameObject::GameObject(const std::string &name, sf::Vector2f pos):
+m_texture_name(name),
+m_position(pos)
+{
+    texture_manager->load_texture(m_texture_name);
+}
+
 GameObject::~GameObject() {
     //  Empty
 }

@@ -6,6 +6,7 @@
 class GameObject {
     public:
         GameObject(const std::string &name);
+        GameObject(const std::string &name, sf::Vector2f pos);
         virtual ~GameObject();
 
         virtual void update();
