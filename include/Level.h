@@ -13,10 +13,14 @@ class Level {
         void update();
         void draw(sf::RenderWindow &window);
 
+        void add_level_background_object(GameObject *g);
+        void remove_level_background_object(GameObject &g);
+
         void add_level_object(GameObject *g);
         void remove_level_object(GameObject &g);
 
     private:
+        std::list<GameObject*> m_level_background_blocks;
         std::list<GameObject*> m_level_blocks;
 };
 
