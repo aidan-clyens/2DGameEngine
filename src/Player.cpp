@@ -11,6 +11,8 @@ Player::~Player() {
 }
 
 void Player::update() {
+    GameObject::update();
+
     if (input_manager->get_key_pressed()) {
         for (sf::Keyboard::Key key : input_manager->get_last_keys_pressed()) {
             switch (key) {
