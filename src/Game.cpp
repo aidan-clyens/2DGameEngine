@@ -19,13 +19,20 @@ void Game::run() {
         // Poll events
         poll_events();
 
-        m_game_world->update();
-
         // Update screen
-        m_main_window.clear();
-        m_game_world->draw();
-        m_main_window.display();
+        update();
+        render();
     }
+}
+
+void Game::update() {
+    m_game_world->update();
+}
+
+void Game::render() {
+    m_main_window.clear();
+    m_game_world->draw();
+    m_main_window.display();
 }
 
 void Game::poll_events() {

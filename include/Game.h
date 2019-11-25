@@ -13,9 +13,11 @@ class Game {
 
         void run();
 
-    private:
+        void update();
+        void render();
         void poll_events();
 
+    private:
         sf::RenderWindow m_main_window;
         World *m_game_world;
 };
