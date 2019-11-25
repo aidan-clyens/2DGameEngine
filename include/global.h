@@ -3,6 +3,7 @@
 
 #include <string>
 #include <list>
+#include <stack>
 
 #include "TextureManager.h"
 #include "InputManager.h"

@@ -1,21 +1,36 @@
 #include "Game.h"
 
-Game::Game():
-m_main_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Test"),
-m_game_world(new World(m_main_window))
+Game::Game()
 {
-    m_game_world->load_level(new Level());
-    m_game_world->add_game_object(new Player("res/player.bmp"));
+    init_window();
+    init_states();
 }
 
 Game::~Game() {
-    delete m_game_world;
+    while (!m_states.empty()) {
+        delete m_states.top();
+        m_states.pop();
+    }
+
+    delete m_main_window;
+}
+
+void Game::init_window() {
+    m_main_window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Test");
+}
+
+void Game::init_states() {
+    GameState *game_state = new GameState(*m_main_window);
+    game_state->load_level(new Level());
+    game_state->add_game_object(new Player("res/player.bmp"));
+    
+    m_states.push(game_state);
 }
 
 void Game::run() {
-    m_main_window.setFramerateLimit(60);
+    m_main_window->setFramerateLimit(60);
 
-    while (m_main_window.isOpen()) {
+    while (m_main_window->isOpen()) {
         // Poll events
         poll_events();
 
@@ -26,21 +41,27 @@ void Game::run() {
 }
 
 void Game::update() {
-    m_game_world->update();
+    if (!m_states.empty()) {
+        m_states.top()->update();
+    }
 }
 
 void Game::render() {
-    m_main_window.clear();
-    m_game_world->render();
-    m_main_window.display();
+    m_main_window->clear();
+
+    if (!m_states.empty()) {
+        m_states.top()->render();
+    }
+
+    m_main_window->display();
 }
 
 void Game::poll_events() {
     sf::Event event;
 
-    while (m_main_window.pollEvent(event)) {    
+    while (m_main_window->pollEvent(event)) {    
         if (event.type == sf::Event::Closed) {
-            m_main_window.close();
+            m_main_window->close();
         }
 
         else if (event.type == sf::Event::KeyPressed) {

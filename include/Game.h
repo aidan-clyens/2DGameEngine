@@ -3,13 +3,17 @@
 
 #include <SFML/Graphics.hpp>
 #include "global.h"
-#include "World.h"
 #include "Player.h"
+#include "State.h"
+#include "GameState.h"
 
 class Game {
     public:
         Game();
         ~Game();
+
+        void init_window();
+        void init_states();
 
         void run();
 
@@ -18,8 +22,8 @@ class Game {
         void poll_events();
 
     private:
-        sf::RenderWindow m_main_window;
-        World *m_game_world;
+        sf::RenderWindow *m_main_window;
+        std::stack<State*> m_states;
 };
 
 #endif // GAME_H
