@@ -28,13 +28,13 @@ void Level::update() {
     }
 }
 
-void Level::draw(sf::RenderWindow &window) {
+void Level::render(sf::RenderWindow &window) {
     for (GameObject *g : m_level_background_blocks) {
-        g->draw(window);
+        g->render(window);
     }
 
     for (GameObject *g : m_level_blocks) {
-        g->draw(window);
+        g->render(window);
     }
 }
 

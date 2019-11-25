@@ -10,7 +10,7 @@ class GameObject {
         virtual ~GameObject();
 
         virtual void update();
-        void draw(sf::RenderWindow &render_window);
+        void render(sf::RenderWindow &render_window);
 
     protected:
         std::string m_texture_name;

@@ -22,11 +22,11 @@ void World::update() {
     }
 }
 
-void World::draw() {
-    m_level->draw(m_render_window);
+void World::render() {
+    m_level->render(m_render_window);
 
     for (GameObject *g : m_game_objects) {
-        g->draw(m_render_window);
+        g->render(m_render_window);
     }
 }
 

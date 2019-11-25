@@ -31,7 +31,7 @@ void Game::update() {
 
 void Game::render() {
     m_main_window.clear();
-    m_game_world->draw();
+    m_game_world->render();
     m_main_window.display();
 }
 

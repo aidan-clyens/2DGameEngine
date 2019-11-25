@@ -11,7 +11,7 @@ class Level {
         ~Level();
 
         void update();
-        void draw(sf::RenderWindow &window);
+        void render(sf::RenderWindow &window);
 
         void add_level_background_object(GameObject *g);
         void remove_level_background_object(GameObject &g);

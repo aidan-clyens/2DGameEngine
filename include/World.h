@@ -11,7 +11,7 @@ class World {
         ~World();
 
         void update();
-        void draw();
+        void render();
 
         void load_level(Level *level);
 

@@ -22,7 +22,7 @@ void GameObject::update() {
 
 }
 
-void GameObject::draw(sf::RenderWindow &render_window) {
+void GameObject::render(sf::RenderWindow &render_window) {
     sf::Texture texture = texture_manager->get_texture(m_texture_name);
     sf::Sprite sprite(texture);
 
