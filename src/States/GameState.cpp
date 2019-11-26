@@ -12,6 +12,14 @@ GameState::~GameState() {
     delete m_level;
 }
 
+void GameState::check_for_quit() {
+    
+}
+
+void GameState::quit_state() {
+    
+}
+
 void GameState::update() {
     m_level->update();
     m_player->update();

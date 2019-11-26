@@ -41,7 +41,18 @@ void Game::run() {
 
 void Game::update() {
     if (!m_states.empty()) {
+        m_states.top()->check_for_quit();
         m_states.top()->update();
+
+        if (m_states.top()->get_quit()) {
+            m_states.top()->quit_state();
+
+            delete m_states.top();
+            m_states.pop();
+        }
+    }
+    else {
+        m_main_window->close();
     }
 }
 

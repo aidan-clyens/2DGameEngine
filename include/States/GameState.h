@@ -11,6 +11,10 @@ class GameState : public State {
         GameState(sf::RenderWindow &render_window);
         virtual ~GameState();
 
+        void check_for_quit();
+
+        void quit_state();
+
         void update();
         void render();
 
