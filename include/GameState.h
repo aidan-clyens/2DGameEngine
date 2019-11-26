@@ -4,6 +4,7 @@
 #include "State.h"
 #include "Level.h"
 #include "GameObject.h"
+#include "Player.h"
 
 class GameState : public State {
     public:
@@ -20,6 +21,7 @@ class GameState : public State {
     
     private:
         std::list<GameObject*> m_game_objects;
+        Player *m_player;
         Level *m_level;
 };
 

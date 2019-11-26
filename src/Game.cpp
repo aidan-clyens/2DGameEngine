@@ -22,7 +22,6 @@ void Game::init_window() {
 void Game::init_states() {
     GameState *game_state = new GameState(*m_main_window);
     game_state->load_level(new Level());
-    game_state->add_game_object(new Player("res/player.bmp"));
     
     m_states.push(game_state);
 }
