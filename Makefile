@@ -4,7 +4,7 @@ DEBUG=-g
 RELEASE=-O2
 CSRCS=$(wildcard src/*cpp) $(wildcard src/*/*.cpp)
 LINKER=-lsfml-graphics -lsfml-window -lsfml-system
-INCLUDE=-I/usr/local/include/SFML -Iinclude -Iinclude/States -Iinclude/GameObjects
+INCLUDE=-I/usr/local/include/SFML -Iinclude -Iinclude/States -Iinclude/GameObjects -Iinclude/ResourceManagers
 
 all: debug
 
