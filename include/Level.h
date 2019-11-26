@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "GameObject.h"
+#include "TileMap.h"
 #include <list>
 
 class Level {
@@ -13,15 +14,8 @@ class Level {
         void update();
         void render(sf::RenderWindow &window);
 
-        void add_level_background_object(GameObject *g);
-        void remove_level_background_object(GameObject &g);
-
-        void add_level_object(GameObject *g);
-        void remove_level_object(GameObject &g);
-
     private:
-        std::list<GameObject*> m_level_background_blocks;
-        std::list<GameObject*> m_level_blocks;
+        TileMap m_tile_map;
 };
 
 #endif // LEVEL_H
