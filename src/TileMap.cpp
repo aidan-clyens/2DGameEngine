@@ -12,13 +12,9 @@ TileMap::TileMap() {
 
 TileMap::~TileMap() {
     for (int x = 0; x < LEVEL_ROWS; x++) {
-
         for (int y = 0; y < LEVEL_COLS; y++) {
             delete m_map[x][y];
-            m_map[x].pop_back();
         }
-
-        m_map.pop_back();
     }
 }
 
