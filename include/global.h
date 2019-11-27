@@ -21,6 +21,7 @@
 #define PLAYER_SPEED    8
 
 const std::string PLAYER_IMG = "res/player.bmp";
+const std::string BUTTON_FONT = "res/fonts/open-sans/OpenSans-Bold.ttf";
 
 // Global variables
 extern InputManager *input_manager;

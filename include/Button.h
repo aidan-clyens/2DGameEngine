@@ -11,7 +11,7 @@ typedef enum button_state {
 
 class Button {
     public:
-        Button(float x, float y, float width, float height, std::string text, sf::Color idle_color, sf::Color hover_color, sf::Color active_color);
+        Button(float x, float y, float width, float height, sf::Font *font, std::string text, sf::Color idle_color, sf::Color hover_color, sf::Color active_color);
         virtual ~Button();
 
         bool is_pressed() const;
