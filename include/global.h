@@ -8,6 +8,7 @@
 #include <sstream>
 
 #include "TextureManager.h"
+#include "FontManager.h"
 #include "InputManager.h"
 
 // Definitions
@@ -27,6 +28,7 @@ const std::string WINDOW_CONFIG_FILE = "config/window.ini";
 
 // Global variables
 extern InputManager *input_manager;
+extern FontManager *font_manager;
 extern TextureManager *texture_manager;
 
 #endif // GLOBAL_H
