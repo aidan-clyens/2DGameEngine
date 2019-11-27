@@ -22,8 +22,10 @@ void Game::init_window() {
 void Game::init_states() {
     GameState *game_state = new GameState(*m_main_window);
     game_state->load_level(new Level());
-    
     m_states.push(game_state);
+    
+    MainMenuState *main_menu_state = new MainMenuState(*m_main_window);
+    m_states.push(main_menu_state);
 }
 
 void Game::run() {
