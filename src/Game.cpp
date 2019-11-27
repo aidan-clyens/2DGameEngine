@@ -17,6 +17,8 @@ Game::~Game() {
 
 void Game::init_window() {
     m_main_window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Test");
+    m_main_window->setFramerateLimit(60);
+    m_main_window->setVerticalSyncEnabled(false);
 }
 
 void Game::init_states() {
@@ -27,8 +29,6 @@ void Game::init_states() {
 }
 
 void Game::run() {
-    m_main_window->setFramerateLimit(60);
-
     while (m_main_window->isOpen()) {
         // Poll events
         poll_events();
