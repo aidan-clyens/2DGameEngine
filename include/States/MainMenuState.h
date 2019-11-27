@@ -19,8 +19,9 @@ class MainMenuState : public State {
     
     private:
         sf::RectangleShape m_background;
-
         Button *m_start_button;
+
+        std::string m_font_name;
 };
 
 #endif // MAIN_MENU_STATE_H

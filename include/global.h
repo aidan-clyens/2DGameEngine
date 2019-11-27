@@ -23,6 +23,7 @@
 #define PLAYER_SPEED    8
 
 const std::string PLAYER_IMG = "res/player.bmp";
+const std::string BUTTON_FONT = "res/fonts/open-sans/OpenSans-Bold.ttf";
 
 const std::string WINDOW_CONFIG_FILE = "config/window.ini";
 
