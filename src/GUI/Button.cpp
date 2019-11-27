@@ -1,10 +1,9 @@
 #include "Button.h"
 
 Button::Button(float x, float y, float width, float height,
-    sf::Font *font,
     std::string text,
     sf::Color idle_color, sf::Color hover_color, sf::Color active_color):
-m_font(font),
+m_text(x + (width / 2.f), y + (height / 2.f), text, font_manager->get_font(SANS_BOLD_FONT), 22),
 m_idle_color(idle_color),
 m_hover_color(hover_color),
 m_active_color(active_color)
@@ -12,15 +11,6 @@ m_active_color(active_color)
     m_shape.setPosition(sf::Vector2f(x, y));
     m_shape.setSize(sf::Vector2f(width, height));
     m_shape.setFillColor(m_idle_color);
-
-    m_text.setFont(*font);
-    m_text.setString(text);
-    m_text.setFillColor(sf::Color::White);
-    m_text.setCharacterSize(22);
-
-    m_text.setPosition(
-        m_shape.getPosition().x + (m_shape.getGlobalBounds().width / 2.f) - m_text.getGlobalBounds().width / 2.0f,
-        m_shape.getPosition().y + (m_shape.getGlobalBounds().height / 2.f) - m_text.getGlobalBounds().height);
 
     m_button_state = BUTTON_IDLE;
 }
@@ -66,5 +56,6 @@ void Button::update() {
 
 void Button::render(sf::RenderWindow &render_window) {
     render_window.draw(m_shape);
-    render_window.draw(m_text);
+
+    m_text.render(render_window);
 }

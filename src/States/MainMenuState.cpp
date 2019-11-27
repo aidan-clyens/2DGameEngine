@@ -3,8 +3,7 @@
 MainMenuState::MainMenuState(sf::RenderWindow &render_window):
 State(render_window)
 {
-    m_font_name = SANS_BOLD_FONT;
-    font_manager->load_font(m_font_name);
+    font_manager->load_font(SANS_BOLD_FONT);
 
     m_background.setSize((sf::Vector2f)render_window.getSize());
     m_background.setFillColor(sf::Color::Cyan);
@@ -14,7 +13,7 @@ State(render_window)
     float x = m_background.getGlobalBounds().width / 2.0f - width / 2.0f;
     float y = m_background.getGlobalBounds().height / 2.0f - height / 2.0f;
 
-    m_start_button = new Button(x, y, width, height, font_manager->get_font(m_font_name), "Start", sf::Color::Blue, sf::Color::Magenta, sf::Color::Red);
+    m_start_button = new Button(x, y, width, height, "Start", sf::Color::Blue, sf::Color::Magenta, sf::Color::Red);
 }
 
 MainMenuState::~MainMenuState() {
