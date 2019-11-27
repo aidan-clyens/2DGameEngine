@@ -24,13 +24,7 @@ MainMenuState::~MainMenuState() {
 }
 
 void MainMenuState::check_for_quit() {
-    if (input_manager->get_key_pressed()) {
-        for (sf::Keyboard::Key key : input_manager->get_last_keys_pressed()) {
-            if (key == sf::Keyboard::Escape) {
-                m_quit = true;
-            }
-        }
-    }
+    m_quit = m_start_button->is_pressed();
 }
 
 void MainMenuState::quit_state() {
