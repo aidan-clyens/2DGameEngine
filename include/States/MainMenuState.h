@@ -2,6 +2,7 @@
 #define MAIN_MENU_STATE_H
 
 #include "State.h"
+#include "Button.h"
 #include "global.h"
 
 class MainMenuState : public State {
@@ -18,6 +19,8 @@ class MainMenuState : public State {
     
     private:
         sf::RectangleShape m_background;
+
+        Button *m_start_button;
 };
 
 #endif // MAIN_MENU_STATE_H
