@@ -69,6 +69,8 @@ void Game::render() {
 void Game::poll_events() {
     sf::Event event;
 
+    input_manager->update_mouse_position(*m_main_window);
+
     while (m_main_window->pollEvent(event)) {    
         if (event.type == sf::Event::Closed) {
             m_main_window->close();
