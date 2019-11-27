@@ -3,7 +3,7 @@
 Button::Button(float x, float y, float width, float height,
     std::string text,
     sf::Color idle_color, sf::Color hover_color, sf::Color active_color):
-m_text(x + (width / 2.f), y + (height / 2.f), text, font_manager->get_font(SANS_BOLD_FONT), 22),
+m_text(x + (width / 2.f), y + (height / 2.f), text, font_manager->get_font(SANS_BOLD_FONT), 22, TEXT_COLOR_LIGHT),
 m_idle_color(idle_color),
 m_hover_color(hover_color),
 m_active_color(active_color)

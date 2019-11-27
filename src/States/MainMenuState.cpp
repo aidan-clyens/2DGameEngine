@@ -6,17 +6,17 @@ State(render_window)
     font_manager->load_font(SANS_BOLD_FONT);
 
     m_background.setSize((sf::Vector2f)render_window.getSize());
-    m_background.setFillColor(sf::Color::Cyan);
+    m_background.setFillColor(MENU_BACKGROUND_COLOR);
     
     float x = m_background.getGlobalBounds().width / 2.0f;
     float y = m_background.getGlobalBounds().height / 2.0f - BLOCK_WIDTH * 3;
-    m_title_text_view = new TextView(x, y, "SFML Test Game", font_manager->get_font(SANS_BOLD_FONT), 30);
+    m_title_text_view = new TextView(x, y, "SFML Test Game", font_manager->get_font(SANS_BOLD_FONT), 30, TEXT_COLOR_DARK);
 
     float width = BLOCK_WIDTH * 6;
     float height = BLOCK_WIDTH;
     x = m_background.getGlobalBounds().width / 2.0f - width / 2.0f;
     y = m_background.getGlobalBounds().height / 2.0f - height / 2.0f;
-    m_start_button = new Button(x, y, width, height, "Start", sf::Color::Blue, sf::Color::Magenta, sf::Color::Red);
+    m_start_button = new Button(x, y, width, height, "Start", BUTTON_IDLE_COLOR, BUTTON_HOVER_COLOR, BUTTON_ACTIVE_COLOR);
 }
 
 MainMenuState::~MainMenuState() {

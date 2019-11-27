@@ -5,7 +5,7 @@
 
 class TextView {
     public:
-        TextView(float x, float y, std::string text, sf::Font *font, unsigned font_size);
+        TextView(float x, float y, std::string text, sf::Font *font, unsigned font_size, sf::Color color);
         virtual ~TextView();
     
         void update();
@@ -15,6 +15,7 @@ class TextView {
         std::string m_text_value;
         sf::Font *m_font;
         unsigned m_font_size;
+        sf::Color m_text_color;
         sf::Text m_text;
 };
 
