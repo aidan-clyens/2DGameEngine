@@ -5,6 +5,7 @@
 #include "global.h"
 #include "Player.h"
 #include "State.h"
+#include "MainMenuState.h"
 #include "GameState.h"
 
 class Game {
