@@ -3,7 +3,7 @@
 MainMenuState::MainMenuState(sf::RenderWindow &render_window):
 State(render_window)
 {
-    m_font_name = BUTTON_FONT;
+    m_font_name = SANS_BOLD_FONT;
     font_manager->load_font(m_font_name);
 
     m_background.setSize((sf::Vector2f)render_window.getSize());
