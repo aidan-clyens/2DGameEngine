@@ -23,6 +23,7 @@ class Game {
 
     private:
         sf::RenderWindow *m_main_window;
+        sf::ContextSettings m_window_settings;
         std::stack<State*> m_states;
 };
 

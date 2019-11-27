@@ -18,23 +18,38 @@ Game::~Game() {
 void Game::init_window() {
     std::ifstream config_file(WINDOW_CONFIG_FILE);
     
+    // Set default window settings
     std::string title = "None";
     sf::VideoMode window_bounds(800, 600);
+    bool fullscreen = false;
     unsigned framerate_limit = 60;
     bool vertical_sync_enabled = false;
+    unsigned antialiasing_level = 0;
 
+    // Load settings from window.ini
     if (config_file.is_open()) {
         std::getline(config_file, title);
         config_file >> window_bounds.width >> window_bounds.height;
+        config_file >> fullscreen;
         config_file >> framerate_limit;
         config_file >> vertical_sync_enabled;
+        config_file >> antialiasing_level;
     }
 
-    m_main_window = new sf::RenderWindow(window_bounds, title);
+    config_file.close();
+
+    // Save settings and create window
+    m_window_settings.antialiasingLevel = antialiasing_level;
+
+    if (fullscreen) {
+        m_main_window = new sf::RenderWindow(window_bounds, title, sf::Style::Fullscreen, m_window_settings);
+    }
+    else {
+        m_main_window = new sf::RenderWindow(window_bounds, title, sf::Style::Titlebar | sf::Style::Close, m_window_settings);
+    }
+
     m_main_window->setFramerateLimit(framerate_limit);
     m_main_window->setVerticalSyncEnabled(vertical_sync_enabled);
-
-    config_file.close();
 }
 
 void Game::init_states() {
