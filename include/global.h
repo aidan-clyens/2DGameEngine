@@ -23,6 +23,8 @@
 
 const std::string PLAYER_IMG = "res/player.bmp";
 
+const std::string WINDOW_CONFIG_FILE = "config/window.ini";
+
 // Global variables
 extern InputManager *input_manager;
 extern TextureManager *texture_manager;

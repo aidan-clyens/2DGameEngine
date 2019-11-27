@@ -16,7 +16,7 @@ Game::~Game() {
 }
 
 void Game::init_window() {
-    std::ifstream config_file("config/window.ini");
+    std::ifstream config_file(WINDOW_CONFIG_FILE);
     
     std::string title = "None";
     sf::VideoMode window_bounds(800, 600);
