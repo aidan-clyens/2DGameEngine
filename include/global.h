@@ -6,6 +6,7 @@
 #include <stack>
 
 #include "TextureManager.h"
+#include "FontManager.h"
 #include "InputManager.h"
 
 // Definitions
@@ -23,6 +24,7 @@ const std::string PLAYER_IMG = "res/player.bmp";
 
 // Global variables
 extern InputManager *input_manager;
+extern FontManager *font_manager;
 extern TextureManager *texture_manager;
 
 #endif // GLOBAL_H
