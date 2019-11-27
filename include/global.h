@@ -4,6 +4,8 @@
 #include <string>
 #include <list>
 #include <stack>
+#include <fstream>
+#include <sstream>
 
 #include "TextureManager.h"
 #include "InputManager.h"

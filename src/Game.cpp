@@ -16,9 +16,25 @@ Game::~Game() {
 }
 
 void Game::init_window() {
-    m_main_window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Test");
-    m_main_window->setFramerateLimit(60);
-    m_main_window->setVerticalSyncEnabled(false);
+    std::ifstream config_file("config/window.ini");
+    
+    std::string title = "None";
+    sf::VideoMode window_bounds(800, 600);
+    unsigned framerate_limit = 60;
+    bool vertical_sync_enabled = false;
+
+    if (config_file.is_open()) {
+        std::getline(config_file, title);
+        config_file >> window_bounds.width >> window_bounds.height;
+        config_file >> framerate_limit;
+        config_file >> vertical_sync_enabled;
+    }
+
+    m_main_window = new sf::RenderWindow(window_bounds, title);
+    m_main_window->setFramerateLimit(framerate_limit);
+    m_main_window->setVerticalSyncEnabled(vertical_sync_enabled);
+
+    config_file.close();
 }
 
 void Game::init_states() {
