@@ -17,7 +17,7 @@
 
 #define BLOCK_WIDTH     (WINDOW_WIDTH / LEVEL_COLS)
 
-#define PLAYER_SPEED    2
+#define PLAYER_SPEED    8
 
 const std::string PLAYER_IMG = "res/player.bmp";
 
