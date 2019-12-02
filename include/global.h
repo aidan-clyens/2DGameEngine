@@ -6,6 +6,7 @@
 #include <stack>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 #include "TextureManager.h"
 #include "FontManager.h"

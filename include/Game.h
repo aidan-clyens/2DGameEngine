@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "global.h"
+#include "TileMap.h"
 #include "Player.h"
 #include "State.h"
 #include "MainMenuState.h"

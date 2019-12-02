@@ -2,7 +2,7 @@
 #define GAME_STATE_H
 
 #include "State.h"
-#include "Level.h"
+#include "TileMap.h"
 #include "GameObject.h"
 #include "Player.h"
 
@@ -18,7 +18,7 @@ class GameState : public State {
         void update();
         void render();
 
-        void load_level(Level *level);
+        void load_level(TileMap *tile_map);
 
         void add_game_object(GameObject *g);
         void remove_game_object(GameObject &g);
@@ -26,7 +26,7 @@ class GameState : public State {
     private:
         std::list<GameObject*> m_game_objects;
         Player *m_player;
-        Level *m_level;
+        TileMap *m_tile_map;
 };
 
 #endif // GAME_STATE_H
