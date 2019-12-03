@@ -43,6 +43,16 @@ void TileMap::remove_tile(const unsigned x, const unsigned y) {
     }
 }
 
+GameObject *TileMap::get_tile(const unsigned x, const unsigned y) {
+    if (x < m_max_cols && x >= 0 && y < m_max_rows && y >= 0) {
+        if (m_map[y][x] != nullptr) {
+            return m_map[y][x];
+        }
+    }
+
+    return nullptr;
+}
+
 void TileMap::load_tilemap() {
     for (unsigned y = 0; y < m_max_rows; y++) {
         for (unsigned x = 0; x < m_max_cols; x++) {
