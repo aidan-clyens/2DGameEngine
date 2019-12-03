@@ -4,16 +4,21 @@
 #include "GameObject.h"
 #include "global.h"
 
+#include "json.hpp"
 class TileMap {
     public:
         TileMap(const unsigned grid_size, const unsigned max_rows, const unsigned max_cols);
         virtual ~TileMap();
 
-        void add_tile(const unsigned x, const unsigned y);
+        void add_tile(const std::string texture_name, const unsigned x, const unsigned y);
         void remove_tile(const unsigned x, const unsigned y);
+
+        GameObject *get_tile(const unsigned x, const unsigned y);
 
         void load_tilemap();
 
+        void save_to_file(const std::string file_name);
+        
         void update();
         void render(sf::RenderWindow &render_window);
 

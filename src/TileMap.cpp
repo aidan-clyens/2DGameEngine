@@ -15,6 +15,8 @@ m_max_cols(max_cols)
 }
 
 TileMap::~TileMap() {
+    save_to_file(TILE_MAP_FILE);
+
     for (unsigned y = 0; y < m_max_rows; y++) {
         for (unsigned x = 0; x < m_max_cols; x++) {
             if (m_map[y][x] != nullptr) {
@@ -24,10 +26,10 @@ TileMap::~TileMap() {
     }
 }
 
-void TileMap::add_tile(const unsigned x, const unsigned y) {
+void TileMap::add_tile(const std::string texture_name, const unsigned x, const unsigned y) {
     if (x < m_max_cols && x >= 0 && y < m_max_rows && y >= 0) {
         if (m_map[y][x] == nullptr) {
-            m_map[y][x] = new GameObject("res/block.bmp", sf::Vector2f(x*m_grid_size, y*m_grid_size));
+            m_map[y][x] = new GameObject(texture_name, sf::Vector2f(x*m_grid_size, y*m_grid_size));
         }
     }
 }
@@ -43,10 +45,37 @@ void TileMap::remove_tile(const unsigned x, const unsigned y) {
 
 void TileMap::load_tilemap() {
     for (unsigned y = 0; y < m_max_rows; y++) {
-        for (unsigned x = 0; x < m_max_cols; x++){
-            add_tile(x, y);
+        for (unsigned x = 0; x < m_max_cols; x++) {
+            add_tile("res/block.bmp", x, y);
         }
     }
+}
+
+void TileMap::save_to_file(const std::string file_name) {
+    nlohmann::json json_file;
+
+    json_file["grid_size"] = m_grid_size;
+    json_file["num_rows"] = m_max_rows;
+    json_file["num_cols"] = m_max_cols;
+    json_file["tiles"] = nlohmann::json::array();
+
+    for (unsigned y = 0; y < m_max_rows; y++) {
+        for (unsigned x = 0; x < m_max_cols; x++) {
+            GameObject *tile = get_tile(x, y);
+
+            nlohmann::json json_tile;
+            json_tile["x"] = tile->get_position().x;
+            json_tile["y"] = tile->get_position().x;
+            json_tile["texture_path"] = tile->get_texture_name();
+        
+            json_file["tiles"].push_back(json_tile);
+        }
+    }
+
+    // Write JSON data to file
+    std::ofstream file(file_name);
+    file << std::setw(4) << json_file << std::endl;
+    file.close();
 }
 
 void TileMap::update() {
