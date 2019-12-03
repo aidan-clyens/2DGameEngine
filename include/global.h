@@ -1,13 +1,16 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
+// STL includes
 #include <string>
 #include <list>
 #include <stack>
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <iomanip>
 
+// Local includes
 #include "TextureManager.h"
 #include "FontManager.h"
 #include "InputManager.h"
@@ -37,7 +40,9 @@ const sf::Color BUTTON_IDLE_COLOR(166, 0, 103);
 const sf::Color BUTTON_HOVER_COLOR(150, 29, 78);
 const sf::Color BUTTON_ACTIVE_COLOR(113, 6, 39);
 
+// Config files
 const std::string WINDOW_CONFIG_FILE = "config/window.ini";
+const std::string TILE_MAP_FILE = "config/tilemap.json";
 
 // Global variables
 extern InputManager *input_manager;
