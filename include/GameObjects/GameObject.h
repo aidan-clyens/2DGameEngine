@@ -11,7 +11,9 @@ class GameObject {
 
         bool check_intersect(sf::FloatRect rect);
 
-        sf::FloatRect get_hitbox();
+        sf::Vector2f get_position() const;
+        sf::FloatRect get_hitbox() const;
+        std::string get_texture_name() const;
         
         virtual void update();
         void render(sf::RenderWindow &render_window);

@@ -30,8 +30,16 @@ bool GameObject::check_intersect(sf::FloatRect rect) {
     return m_hitbox.getGlobalBounds().intersects(rect);
 }
 
-sf::FloatRect GameObject::get_hitbox() {
+sf::Vector2f GameObject::get_position() const {
+    return m_position;
+}
+
+sf::FloatRect GameObject::get_hitbox() const {
     return m_hitbox.getGlobalBounds();
+}
+
+std::string GameObject::get_texture_name() const {
+    return m_texture_name;
 }
 
 void GameObject::update() {
