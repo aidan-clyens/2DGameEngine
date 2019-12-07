@@ -41,7 +41,12 @@ void GameState::render() {
 void GameState::load_level(TileMap *tile_map) {
     m_tile_map = tile_map;
 
-    m_tile_map->load_tilemap();
+    std::ifstream file(TILE_MAP_FILE);
+    if (file.good()) {
+        m_tile_map->load_from_file(TILE_MAP_FILE);
+    } else {
+        m_tile_map->load_tilemap();
+    }
 }
 
 void GameState::add_game_object(GameObject *g) {
