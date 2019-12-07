@@ -75,7 +75,7 @@ void TileMap::save_to_file(const std::string file_name) {
 
             nlohmann::json json_tile;
             json_tile["x"] = tile->get_position().x;
-            json_tile["y"] = tile->get_position().x;
+            json_tile["y"] = tile->get_position().y;
             json_tile["texture_path"] = tile->get_texture_name();
         
             json_file["tiles"].push_back(json_tile);
