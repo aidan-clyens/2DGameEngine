@@ -16,8 +16,10 @@ class TileMap {
         GameObject *get_tile(const unsigned x, const unsigned y);
 
         void load_tilemap();
+        void load_empty_tile_map();
 
         void save_to_file(const std::string file_name);
+        void load_from_file(const std::string file_name);
         
         void update();
         void render(sf::RenderWindow &render_window);

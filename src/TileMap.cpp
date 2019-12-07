@@ -5,13 +5,7 @@ m_grid_size(grid_size),
 m_max_rows(max_rows),
 m_max_cols(max_cols)
 {
-    for (unsigned y=0; y<m_max_rows; y++) {
-        m_map.push_back(std::vector<GameObject*>());
 
-        for (unsigned x=0; x<m_max_cols; x++) {
-            m_map[y].push_back(nullptr);
-        }
-    }
 }
 
 TileMap::~TileMap() {
@@ -54,9 +48,23 @@ GameObject *TileMap::get_tile(const unsigned x, const unsigned y) {
 }
 
 void TileMap::load_tilemap() {
+    load_empty_tile_map();
+
     for (unsigned y = 0; y < m_max_rows; y++) {
         for (unsigned x = 0; x < m_max_cols; x++) {
             add_tile("res/block.bmp", x, y);
+        }
+    }
+}
+
+void TileMap::load_empty_tile_map() {
+    m_map.clear();
+
+    for (unsigned y = 0; y < m_max_rows; y++) {
+        m_map.push_back(std::vector<GameObject *>());
+
+        for (unsigned x = 0; x < m_max_cols; x++) {
+            m_map[y].push_back(nullptr);
         }
     }
 }
@@ -86,6 +94,25 @@ void TileMap::save_to_file(const std::string file_name) {
     std::ofstream file(file_name);
     file << std::setw(4) << json_file << std::endl;
     file.close();
+}
+
+void TileMap::load_from_file(const std::string file_name) {
+    nlohmann::json json_file;
+    std::ifstream file(file_name);
+
+    file >> json_file;
+
+    file.close();
+
+    m_grid_size = json_file["grid_size"];
+    m_max_rows = json_file["num_rows"];
+    m_max_cols = json_file["num_cols"];
+
+    load_empty_tile_map();
+
+    for (nlohmann::json tile : json_file["tiles"]) {
+        add_tile(tile["texture_path"], static_cast<unsigned>(tile["x"]) / m_grid_size, static_cast<unsigned>(tile["y"]) / m_grid_size);
+    }
 }
 
 void TileMap::update() {
