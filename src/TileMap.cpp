@@ -47,6 +47,10 @@ GameObject *TileMap::get_tile(const unsigned x, const unsigned y) {
     return nullptr;
 }
 
+unsigned TileMap::get_grid_size() const {
+    return m_grid_size;
+}
+
 void TileMap::load_tilemap() {
     load_empty_tile_map();
 

@@ -14,6 +14,7 @@ class TileMap {
         void remove_tile(const unsigned x, const unsigned y);
 
         GameObject *get_tile(const unsigned x, const unsigned y);
+        unsigned get_grid_size() const;
 
         void load_tilemap();
         void load_empty_tile_map();
